@@ -1,3 +1,5 @@
+# escape=\
+
 FROM ruby:3.1
 
 RUN apt-get update -yqq
