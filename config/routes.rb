@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      devise_scope :user do
+        post "signup", to: "registrations#create"
+        post "signin", to: "sessions#create"
+        delete "logout", to: "sessions#destroy"
+      end
+    end
+  end
+
 end
