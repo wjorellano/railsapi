@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :images
+  resources :comments
+  resources :products
+  resources :categories
   devise_for :users
 
   namespace :api, defaults: { format: :json } do
